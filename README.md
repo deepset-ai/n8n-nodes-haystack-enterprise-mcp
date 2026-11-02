@@ -15,6 +15,7 @@ workflow automation platform.
 - [Installation](#installation)
 - [Operations](#operations)
 - [Example workflows](#example-workflows)
+- [Companion node: Haystack Enterprise AI](#companion-node-haystack-enterprise-ai)
 - [Credentials](#credentials)
 - [Resources](#resources)
 - [Version history](#version-history)
@@ -29,8 +30,8 @@ Enable community nodes on your instance, then follow the
 [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) and enter the
 package name `@deepset-ai/n8n-nodes-haystack-enterprise-mcp`.
 
-Looking for the n8n-verified Haystack Enterprise nodes? See
-[`@deepset-ai/n8n-nodes-haystack-enterprise`](https://www.npmjs.com/package/@deepset-ai/n8n-nodes-haystack-enterprise).
+Looking for the n8n-verified Haystack Enterprise nodes? See the
+[companion node](#companion-node-haystack-enterprise-ai) below.
 
 ## Operations
 
@@ -54,6 +55,23 @@ an AI Agent with this node wired into its Tools input.
 To use it, open the file on GitHub, click **Copy raw file**, and paste it onto the n8n canvas
 (Ctrl/Cmd+V). Then add your own credentials (including for the OpenAI Chat Model node) and select
 your workspace on the Haystack Enterprise MCP node.
+
+## Companion node: Haystack Enterprise AI
+
+This node covers one thing: giving an AI Agent your pipelines as tools. For everything else you do
+with a Haystack Enterprise Platform workspace from n8n, use its companion package
+[`@deepset-ai/n8n-nodes-haystack-enterprise`](https://www.npmjs.com/package/@deepset-ai/n8n-nodes-haystack-enterprise)
+([source](https://github.com/deepset-ai/n8n-nodes-haystack-enterprise)). It is n8n-verified, so it
+also runs on n8n Cloud, and ships two nodes:
+
+- **Haystack Enterprise AI** talks to your workspace directly: chat with your deployed AI services
+  (including streaming and chat completions), upload and manage files and their metadata, look up
+  indexes, and manage search sessions for conversation history.
+- **Haystack Enterprise Chat Model** is a language-model sub-node for n8n's AI Agent that runs on a
+  Haystack Enterprise service.
+
+Both packages use the same "Haystack Enterprise API" and "Haystack Enterprise OAuth2 API"
+credentials, so you configure your account once.
 
 ## Credentials
 
