@@ -5,7 +5,7 @@ import type {
 	INodeProperties,
 } from 'n8n-workflow';
 
-// Kept in sync by hand with packages/haystack-enterprise; both register the same credential
+// Kept in sync by hand with https://github.com/deepset-ai/n8n-nodes-haystack-enterprise; both register the same credential
 // `name` so users configure it once.
 export class HaystackEnterpriseApi implements ICredentialType {
 	name = 'haystackEnterpriseApi';

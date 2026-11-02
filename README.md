@@ -48,7 +48,7 @@ the Agent can call your pipelines.
 ## Example workflows
 
 Try the
-[AI Agent with MCP tools example](https://github.com/deepset-ai/deepset-n8n-nodes/blob/main/packages/haystack-enterprise-mcp/test/examples/ai-agent-with-mcp-tools-example.json):
+[AI Agent with MCP tools example](https://github.com/deepset-ai/n8n-nodes-haystack-enterprise-mcp/blob/main/test/examples/ai-agent-with-mcp-tools-example.json):
 an AI Agent with this node wired into its Tools input.
 
 To use it, open the file on GitHub, click **Copy raw file**, and paste it onto the n8n canvas
@@ -101,6 +101,7 @@ See the [changelog](./CHANGELOG.md).
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/deepset-ai/deepset-n8n-nodes/blob/main/CONTRIBUTING.md).
+See
+[CONTRIBUTING.md](https://github.com/deepset-ai/n8n-nodes-haystack-enterprise-mcp/blob/main/CONTRIBUTING.md).
 Report security issues as described in
-[SECURITY.md](https://github.com/deepset-ai/deepset-n8n-nodes/blob/main/SECURITY.md).
+[SECURITY.md](https://github.com/deepset-ai/n8n-nodes-haystack-enterprise-mcp/blob/main/SECURITY.md).

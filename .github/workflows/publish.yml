@@ -1,0 +1,51 @@
+# Publishes @deepset-ai/n8n-nodes-haystack-enterprise-mcp to npm on version tag pushes (v<version>,
+# e.g. v0.2.0). The tag version must match "version" in package.json: the workflow publishes the
+# version in package.json, not the one in the tag name.
+#
+# n8n requires community nodes to be published from GitHub Actions with npm provenance.
+# `npm run release` passes the provenance flag (needs @n8n/node-cli >= 0.23.0).
+#
+# npm authentication, on npmjs.com:
+#   - Preferred: OIDC Trusted Publishing. Add this repository
+#     (deepset-ai/n8n-nodes-haystack-enterprise-mcp) and workflow (publish.yml) as a Trusted
+#     Publisher and leave NPM_TOKEN unset.
+#   - Fallback: a granular automation token with read/write access to the package, stored as the
+#     NPM_TOKEN repository secret.
+
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    name: Publish @deepset-ai/n8n-nodes-haystack-enterprise-mcp
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          # Not lts/* (now Node 26): isolated-vm 6.1.2 (via n8n's expression-runtime) doesn't compile on Node 26.
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: 'npm ci'
+
+      - name: Release
+        # Lint and build run as part of `n8n-node release`. With NPM_TOKEN
+        # unset, npm authenticates via OIDC.
+        run: |
+          [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          npm run release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

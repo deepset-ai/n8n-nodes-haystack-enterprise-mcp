@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+# Cancel in-progress runs for the same branch/PR to avoid wasting CI minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          # Not lts/* (now Node 26): isolated-vm 6.1.2 (via n8n's expression-runtime) doesn't compile on Node 26.
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: 'npm ci'
+
+      - name: Run lint
+        run: 'npm run lint'
+
+      - name: Check formatting
+        run: 'npm run format:check'
+
+      - name: Run build
+        run: 'npm run build'
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          # Not lts/* (now Node 26): isolated-vm 6.1.2 (via n8n's expression-runtime) doesn't compile on Node 26.
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: 'npm ci'
+
+      - name: Run tests
+        run: 'npm run test'
+  # The lockfile pins the n8n-workflow/n8n-core versions; this job checks the newest ones.
+  latest-n8n:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          # Not lts/* (now Node 26): isolated-vm 6.1.2 (via n8n's expression-runtime) doesn't compile on Node 26.
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: 'npm ci'
+
+      - name: Upgrade n8n-workflow and n8n-core to latest
+        run: 'npm install --no-save n8n-workflow@latest n8n-core@latest'
+
+      - name: Build and test
+        run: 'npm run build && npm run test'

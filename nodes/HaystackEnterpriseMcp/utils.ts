@@ -19,7 +19,7 @@ import { NodeApiError, NodeOperationError } from 'n8n-workflow';
 
 import packageJson from '../../package.json';
 
-// Keep in sync with packages/haystack-enterprise/nodes/HaystackEnterprise/utils.ts
+// Keep in sync with nodes/HaystackEnterprise/utils.ts in https://github.com/deepset-ai/n8n-nodes-haystack-enterprise
 // (DEFAULT_API_ORIGIN / normalizeApiOrigin / getApiOriginFromCredentials / getApiBaseUrlV1FromOrigin).
 export const DEFAULT_API_ORIGIN = 'https://api.cloud.deepset.ai';
 const CREDENTIAL_NAME = 'haystackEnterpriseApi';
