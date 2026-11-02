@@ -15,7 +15,7 @@ workflow automation platform.
 - [Installation](#installation)
 - [Operations](#operations)
 - [Example workflows](#example-workflows)
-- [Companion node: Haystack Enterprise AI](#companion-node-haystack-enterprise-ai)
+- [Haystack Enterprise AI companion node](#haystack-enterprise-ai-companion-node)
 - [Credentials](#credentials)
 - [Resources](#resources)
 - [Version history](#version-history)
@@ -31,7 +31,7 @@ Enable community nodes on your instance, then follow the
 package name `@deepset-ai/n8n-nodes-haystack-enterprise-mcp`.
 
 Looking for the n8n-verified Haystack Enterprise nodes? See the
-[companion node](#companion-node-haystack-enterprise-ai) below.
+[haystack-enterprise-ai](#haystack-enterprise-ai-companion-node) below.
 
 ## Operations
 
@@ -56,22 +56,19 @@ To use it, open the file on GitHub, click **Copy raw file**, and paste it onto t
 (Ctrl/Cmd+V). Then add your own credentials (including for the OpenAI Chat Model node) and select
 your workspace on the Haystack Enterprise MCP node.
 
-## Companion node: Haystack Enterprise AI
+## Haystack Enterprise AI companion node
 
-This node covers one thing: giving an AI Agent your pipelines as tools. For everything else you do
-with a Haystack Enterprise Platform workspace from n8n, use its companion package
-[`@deepset-ai/n8n-nodes-haystack-enterprise`](https://www.npmjs.com/package/@deepset-ai/n8n-nodes-haystack-enterprise)
-([source](https://github.com/deepset-ai/n8n-nodes-haystack-enterprise)). It is n8n-verified, so it
-also runs on n8n Cloud, and ships two nodes:
+Use this node to give an AI Agent access to your pipelines as tools.
 
-- **Haystack Enterprise AI** talks to your workspace directly: chat with your deployed AI services
-  (including streaming and chat completions), upload and manage files and their metadata, look up
-  indexes, and manage search sessions for conversation history.
+For other Haystack Enterprise tasks in n8n, use the
+[verified companion package](https://www.npmjs.com/package/@deepset-ai/n8n-nodes-haystack-enterprise)
+([source](https://github.com/deepset-ai/n8n-nodes-haystack-enterprise)). It works on n8n Cloud and
+includes:
+
+- **Haystack Enterprise AI** — Chat with deployed services, upload and manage files and metadata,
+  look up indexes, and manage search sessions.
 - **Haystack Enterprise Chat Model** is a language-model sub-node for n8n's AI Agent that runs on a
   Haystack Enterprise service.
-
-Both packages use the same "Haystack Enterprise API" and "Haystack Enterprise OAuth2 API"
-credentials, so you configure your account once.
 
 ## Credentials
 
