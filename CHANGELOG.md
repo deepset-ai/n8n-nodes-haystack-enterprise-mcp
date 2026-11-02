@@ -1,7 +1,11 @@
 # Changelog
 
-## Unreleased
+## 0.2.1
 
+- The package now lives in its own repository,
+  [deepset-ai/n8n-nodes-haystack-enterprise-mcp](https://github.com/deepset-ai/n8n-nodes-haystack-enterprise-mcp)
+  (previously `packages/haystack-enterprise-mcp` in a monorepo). `repository.url` in `package.json`
+  points to it. No changes to node behavior.
 - The codex file (`HaystackEnterpriseMcp.node.json`) now uses the fully-qualified node identifier,
   `@deepset-ai/n8n-nodes-haystack-enterprise-mcp.haystackEnterpriseMcp`. No changes to node
   behavior.
