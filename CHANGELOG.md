@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Removed the unsupported `subcategories` field from the MCP node's codex
+  (`HaystackEnterpriseMcp.node.json` and the inline codex). No changes to node behavior.
+
 ## 0.2.1
 
 - The package now lives in its own repository,
