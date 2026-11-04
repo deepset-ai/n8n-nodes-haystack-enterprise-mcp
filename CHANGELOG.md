@@ -3,8 +3,7 @@
 ## Unreleased
 
 - Removed the unsupported `subcategories` field from the MCP node's codex
-  (`HaystackEnterpriseMcp.node.json` and the inline codex), as required by n8n verification. No
-  changes to node behavior.
+  (`HaystackEnterpriseMcp.node.json` and the inline codex). No changes to node behavior.
 
 ## 0.2.1
 
