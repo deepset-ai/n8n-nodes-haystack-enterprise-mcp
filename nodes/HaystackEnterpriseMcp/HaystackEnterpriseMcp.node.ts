@@ -159,9 +159,6 @@ export class HaystackEnterpriseMcp implements INodeType {
 		},
 		codex: {
 			categories: ['AI'],
-			subcategories: {
-				AI: ['Tools'],
-			},
 			resources: {
 				primaryDocumentation: [
 					{
