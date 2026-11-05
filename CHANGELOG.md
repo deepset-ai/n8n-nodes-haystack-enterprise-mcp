@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Removed the notice banners from the node and OAuth2 credential forms. The MCP server setup hint is
+  now part of the **Workspace Name or ID** description; the sign-in hint is part of the **Use
+  Dynamic Client Registration** description.
+
 ## 0.2.2
 
 - Removed the unsupported `subcategories` field from the MCP node's codex
