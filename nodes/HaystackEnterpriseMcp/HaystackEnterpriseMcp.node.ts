@@ -184,13 +184,6 @@ export class HaystackEnterpriseMcp implements INodeType {
 		],
 		properties: [
 			{
-				displayName:
-					'This node is only available on self-hosted n8n instances. It does not work on n8n Cloud.',
-				name: 'selfHostedNotice',
-				type: 'notice',
-				default: '',
-			},
-			{
 				displayName: 'Authentication',
 				name: 'authentication',
 				type: 'options',
@@ -210,13 +203,6 @@ export class HaystackEnterpriseMcp implements INodeType {
 				default: 'apiKey',
 			},
 			{
-				displayName:
-					'Make sure you have created an MCP server and enabled at least one pipeline as a tool in Haystack Enterprise Platform under Settings → Workspace → MCP. See the <a href="https://docs.cloud.deepset.ai/docs/use-pipeline-as-mcp-tool/" target="_blank" rel="noopener noreferrer">docs on using a pipeline as an MCP tool</a>.',
-				name: 'mcpServerNotice',
-				type: 'notice',
-				default: '',
-			},
-			{
 				// Plain options keep dependent tool lists refreshable in n8n.
 				displayName: 'Workspace Name or ID',
 				name: 'workspaceId',
@@ -228,7 +214,7 @@ export class HaystackEnterpriseMcp implements INodeType {
 				default: '',
 				required: true,
 				description:
-					'Select your <a href="https://docs.cloud.deepset.ai/docs/basic-concepts#workspace" target="_blank" rel="noopener noreferrer">workspace</a>, populated from your Haystack Enterprise Platform account. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+					'Make sure you have created an MCP server and enabled at least one pipeline as a tool in Haystack Enterprise Platform under Settings → Workspace → MCP (see the <a href="https://docs.cloud.deepset.ai/docs/use-pipeline-as-mcp-tool/" target="_blank" rel="noopener noreferrer">docs</a>). Select your <a href="https://docs.cloud.deepset.ai/docs/basic-concepts#workspace" target="_blank" rel="noopener noreferrer">workspace</a>, populated from your Haystack Enterprise Platform account. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 			},
 			{
 				displayName: 'Tools to Include',
