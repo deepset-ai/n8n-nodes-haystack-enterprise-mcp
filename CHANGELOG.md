@@ -2,9 +2,9 @@
 
 ## Unreleased
 
-- Removed the notice banners from the node and OAuth2 credential forms. The self-hosted hint is
-  already in the node description; the MCP server setup hint is now part of the **Workspace Name or
-  ID** description; the sign-in hint is part of the **Use Dynamic Client Registration** description.
+- Removed the notice banners from the node and OAuth2 credential forms. The MCP server setup hint is
+  now part of the **Workspace Name or ID** description; the sign-in hint is part of the **Use
+  Dynamic Client Registration** description.
 
 ## 0.2.2
 
